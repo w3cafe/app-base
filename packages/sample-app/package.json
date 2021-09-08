@@ -1,0 +1,29 @@
+{
+  "name": "sample-app",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "vivex <lucid.vivek@gmail.com>",
+  "homepage": "https://github.com/w3cafe/app-base#readme",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/w3cafe/app-base.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/w3cafe/app-base/issues"
+  },
+  "dependencies": {
+    "@appbase/core-backend": "^0.0.0"
+  }
+}

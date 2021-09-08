@@ -1,0 +1,56 @@
+Arguments: 
+  /Users/viveksoni/.nvm/versions/node/v12.20.1/bin/node /Users/viveksoni/.nvm/versions/node/v12.20.1/bin/yarn add typeorm
+
+PATH: 
+  /Users/viveksoni/.nvm/versions/node/v12.20.1/bin:/Library/Frameworks/Python.framework/Versions/3.9/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/viveksoni/Library/Android/sdk/emulator:/Users/viveksoni/Library/Android/sdk/tools:/Users/viveksoni/Library/Android/sdk/tools/bin:/Users/viveksoni/Library/Android/sdk/platform-tools
+
+Yarn version: 
+  1.22.10
+
+Node version: 
+  12.20.1
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: getaddrinfo ENOTFOUND registry.myntra.com
+      at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:66:26)
+
+npm manifest: 
+  {
+    "name": "@appbase/core-backend",
+    "version": "0.0.0",
+    "description": "> TODO: description",
+    "author": "vivex <lucid.vivek@gmail.com>",
+    "homepage": "https://github.com/w3cafe/app-base#readme",
+    "license": "ISC",
+    "main": "lib/core-backend.js",
+    "directories": {
+      "lib": "lib",
+      "test": "__tests__"
+    },
+    "files": [
+      "lib"
+    ],
+    "publishConfig": {
+      "registry": "https://registry.npmjs.org/"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/w3cafe/app-base.git"
+    },
+    "scripts": {
+      "test": "echo \"Error: run tests from root\" && exit 1",
+      "build": "tsc"
+    },
+    "bugs": {
+      "url": "https://github.com/w3cafe/app-base/issues"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
