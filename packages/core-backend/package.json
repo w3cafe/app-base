@@ -28,8 +28,10 @@
     "url": "https://github.com/w3cafe/app-base/issues"
   },
   "dependencies": {
+    "@appbase/core-models": "^0.0.0",
     "mysql": "^2.18.1",
     "reflect-metadata": "^0.1.13",
+    "tslib": "^2.3.1",
     "typeorm": "^0.2.37"
   }
 }

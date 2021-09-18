@@ -1,11 +1,11 @@
 {
-  "name": "@appbase/module-user",
+  "name": "@appbase/core-models",
   "version": "0.0.0",
   "description": "> TODO: description",
   "author": "vivex <lucid.vivek@gmail.com>",
   "homepage": "https://github.com/w3cafe/app-base#readme",
   "license": "ISC",
-  "main": "dist/main.js",
+  "main": "dist/index.js",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
@@ -14,7 +14,7 @@
     "lib"
   ],
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
+    "registry": "https://registry.myntra.com/"
   },
   "repository": {
     "type": "git",
@@ -26,10 +26,5 @@
   },
   "bugs": {
     "url": "https://github.com/w3cafe/app-base/issues"
-  },
-  "dependencies": {
-    "@appbase/core-backend": "^0.0.0",
-    "@appbase/core-models": "^0.0.0",
-    "typeorm": "^0.2.37"
   }
 }
