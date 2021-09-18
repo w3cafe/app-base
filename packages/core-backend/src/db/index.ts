@@ -17,9 +17,9 @@ export function _bootstrap() {
         "type": "mysql",
         "host": "localhost",
         "port": 3306,
-        "username": "test",
-        "password": "test",
-        "database": "test",
+        "username": "root",
+        "password": "temp098$",
+        "database": "appbase",
         entities: Array.from(global._entityList),
         migrations: Array.from(global._migrationList)
      };
