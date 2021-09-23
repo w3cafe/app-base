@@ -22,7 +22,8 @@
   },
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1",
-    "build": "tsc"
+    "build": "tsc",
+    "dev": "tsc --watch"
   },
   "bugs": {
     "url": "https://github.com/w3cafe/app-base/issues"

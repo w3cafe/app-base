@@ -14,7 +14,7 @@
     "lib"
   ],
   "publishConfig": {
-    "registry": "https://registry.myntra.com/"
+    "registry": "https://registry.npmjs.org/"
   },
   "repository": {
     "type": "git",
@@ -22,7 +22,8 @@
   },
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1",
-    "build": "tsc"
+    "build": "tsc",
+    "dev": "tsc -b --watch"
   },
   "bugs": {
     "url": "https://github.com/w3cafe/app-base/issues"
