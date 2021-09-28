@@ -2,8 +2,8 @@
   "name": "root",
   "private": true,
   "scripts": {
-    "build": "lerna run build",
-    "dev": "lerna run dev --stream"
+    "build": "rollup -c",
+    "watch": "rollup -cw"
   },
   "devDependencies": {
     "@lerna/batch-packages": "^3.16.0",

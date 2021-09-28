@@ -1,35 +1,52 @@
-import {ControllerOptions, PathType}  from './types';
+import { PathType, ControllerConfig, ActionConfig}  from './types';
 import { actionsList, controllerRegistery } from './ControllerRegistery';
 
-function mapOptions(options: any): ControllerOptions {
+function mapOptions(options: any): any  {
+  let opts: any = {};
     if (typeof options === "string" || options instanceof RegExp || Array.isArray(options)) {
-      return {
-        path: options
+      opts =  {
+        path: options,
       };
+    } else {
+      opts = options;
     }
   
-    return options;
+    return opts;
 }
 
 
 
 
-  export function Controller(options: PathType | ControllerOptions): ClassDecorator {
-    const {...opts} = mapOptions(options);
-      return (target) => {
-        controllerRegistery.set(target, opts);
-    };
+  export function Controller(options: PathType | any): ClassDecorator {
+    const {...controllerOptions} = mapOptions(options);
+    console.info('controllerOptions', controllerOptions);
+      return  function(constructor: Function) {
+        const actions = new Array<ActionConfig>();
+        controllerRegistery.add({
+          path: controllerOptions.path,
+          controllerMiddlewares: controllerOptions.middlewares,
+          controllerName: constructor.name,
+          controllerConstructor: constructor,
+          actions: constructor.prototype["actions"]  as ActionConfig[]
+        })
+      }
   }
 
 
 export class Methods {
-    static GET(options) {
-        return function(targetClass: any, propertyKey: string, descriptor?: TypedPropertyDescriptor<() => void>) {
-            actionsList.add({
-                actionHandler: descriptor.value,
-                controller: targetClass,
-                options: options
+    static GET(options: PathType | any) {
+      const {...actionConfig} = mapOptions(options);
+        return function( target: any,
+          propertyKey: string | symbol,
+          descriptor: PropertyDescriptor) {
+            const actions: [ActionConfig] =  target["actions"] || [];
+            actions.push({
+              method: 'GET',
+              actionMiddlewares: actionConfig.middlewares,
+              actionHandler: descriptor.value,
             })
+            target['actions'] = actions;
+            return descriptor;
         }
     }
 }
