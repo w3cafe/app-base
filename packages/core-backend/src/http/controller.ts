@@ -1,4 +1,4 @@
-import { PathType, Middlewares, ActionConfig, MiddlewareDefination}  from './types';
+import { PathType, Middlewares, ActionConfig, MiddlewareDefination, HttpMethods}  from './types';
 import { middlewaresRegistery, controllerRegistery } from './ControllerRegistery';
 
 function mapOptions(options: any): any  {
@@ -32,20 +32,32 @@ function mapOptions(options: any): any  {
 
 
 export class Methods {
-    static GET(options: PathType | any) {
+    private static execute(method: HttpMethods, options: PathType | any) {
       const {...actionConfig} = mapOptions(options);
-        return function( target: any,
-          propertyKey: string | symbol,
-          descriptor: PropertyDescriptor) {
-            const actions: [ActionConfig] =  target["actions"] || [];
-            actions.push({
-              method: 'GET',
-              actionMiddlewares: actionConfig.middlewares,
-              actionHandler: descriptor.value,
-            })
-            target['actions'] = actions;
-            return descriptor;
-        }
+      return function( target: any,
+        propertyKey: string | symbol,
+        descriptor: PropertyDescriptor) {
+          const actions: [ActionConfig] =  target["actions"] || [];
+          actions.push({
+            method,
+            actionMiddlewares: actionConfig.middlewares,
+            actionHandler: descriptor.value,
+          })
+          target['actions'] = actions;
+          return descriptor;
+      }
+    }
+    static GET(options: PathType | any) {
+      return Methods.execute('GET', options);
+    }
+    static POST(options: PathType | any) {
+      return Methods.execute('POST', options);
+    }
+    static DELETE(options: PathType | any) {
+      return Methods.execute('DELETE', options);
+    }
+    static PATCH(options: PathType | any) {
+      return Methods.execute('PATCH', options);
     }
 }
 

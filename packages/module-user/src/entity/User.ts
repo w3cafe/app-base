@@ -1,5 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
-
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
+import Role from './Role';
 @Entity()
 export default class User {
     @PrimaryGeneratedColumn('uuid')
@@ -16,4 +16,14 @@ export default class User {
 
     @Column()
     password: number;
+
+    @Column('longtext')
+    extraFields: string;
+
+    @Column('longtext')
+    authProviderData: string;
+
+
+    @OneToMany(() => Role, role => role.user)
+    roles: Role[];
 }
