@@ -1,3 +1,4 @@
+import "reflect-metadata";
 import { _bootstrap as DBBootStrap} from "./db";
 import {registerModule} from "./module";
 import HTTP, {startHTTPServer} from './http';

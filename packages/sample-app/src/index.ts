@@ -11,7 +11,7 @@ class UserController {
         console.info('UserController called');
     }
     @HTTP.Methods.GET('')
-    get() {
-
+    get(req, res) {
+        res.send('Hello World');
     }
 }

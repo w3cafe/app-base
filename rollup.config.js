@@ -49,13 +49,13 @@ async function main() {
       const plugins = [
         nodeResolve(),
         ts({
-          objectHashIgnoreUnknownHack: true,
+          //objectHashIgnoreUnknownHack: true,
           tsconfig: 'tsconfig.json',
           tsconfigOverride: {
             include: [path.join(basePath, 'src'), path.resolve(__dirname, '@types')],
             compilerOptions: {
                 moduleResolution: 'node',
-                target: 'esnext',
+                //target: 'esnext',
                 module: 'esnext',
                 jsx: 'react',
                 lib: ['esnext'],

@@ -1,5 +1,5 @@
-import { PathType, ControllerConfig, ActionConfig}  from './types';
-import { actionsList, controllerRegistery } from './ControllerRegistery';
+import { PathType, Middlewares, ActionConfig, MiddlewareDefination}  from './types';
+import { middlewaresRegistery, controllerRegistery } from './ControllerRegistery';
 
 function mapOptions(options: any): any  {
   let opts: any = {};
@@ -19,9 +19,7 @@ function mapOptions(options: any): any  {
 
   export function Controller(options: PathType | any): ClassDecorator {
     const {...controllerOptions} = mapOptions(options);
-    console.info('controllerOptions', controllerOptions);
       return  function(constructor: Function) {
-        const actions = new Array<ActionConfig>();
         controllerRegistery.add({
           path: controllerOptions.path,
           controllerMiddlewares: controllerOptions.middlewares,
@@ -49,4 +47,12 @@ export class Methods {
             return descriptor;
         }
     }
+}
+
+export function Middleware(middlewareName: string) {
+  return function(target: any) {
+    console.info('options', middlewareName);
+    console.info('target is called', target.prototype);
+    middlewaresRegistery.set(middlewareName, target as MiddlewareDefination)
+  }
 }
